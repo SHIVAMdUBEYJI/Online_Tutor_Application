@@ -1,0 +1,17 @@
+
+.toolbar {
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center;     /* Vertically center content */
+    position: relative;      /* To allow absolute positioning */
+  }
+
+  .toolbar button {
+    position: absolute;
+    left: 0; /* Keep the menu button on the left */
+  }
+
+  .toolbar-title {
+    text-align: center;
+    flex-grow: 1; /* Make the span take up available space */
+  }

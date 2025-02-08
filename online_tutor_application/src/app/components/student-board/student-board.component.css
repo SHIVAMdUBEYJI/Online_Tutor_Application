@@ -1,0 +1,41 @@
+/* Centering the content and ensuring layout is correct */
+.content {
+    text-align: center;  /* Centers the content like welcome message and description */
+    margin-top: 20px; /* Adds some space above the content */
+  }
+
+  /* Ensuring the navbar and logout button align correctly */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar .ml-auto {
+    margin-left: auto;
+  }
+
+  /* For the student dashboard title */
+  h1 {
+    font-size: 2rem;  /* Adjust font size if needed */
+    margin-top: 20px;
+    color: #007bff; /* Adjust the color to match your theme */
+  }
+
+  /* Responsive layout for courses */
+  .mat-card {
+    margin-top: 15px;  /* Adjust margins between cards */
+  }
+
+  .mat-card-actions {
+    text-align: center;
+  }
+
+  /* For text-center on the entire page */
+  .text-center {
+    text-align: center;
+  }
+
+  .container.mt-5 {
+    margin-top: 50px; /* Adds space at the top for the courses section */
+  }

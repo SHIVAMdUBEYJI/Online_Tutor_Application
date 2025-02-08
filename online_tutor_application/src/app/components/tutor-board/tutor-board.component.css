@@ -1,0 +1,142 @@
+/* Global styles for the tutor board */
+
+/* Styling for the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+.navbar .ml-auto {
+    margin-left: auto;
+  }
+
+/* Content section */
+.content {
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* Heading style */
+h1, h2 {
+    color: #007bff;
+}
+
+/* Primary color for headings */
+.text-primary {
+    color: #007bff;
+}
+
+/* Custom alert for error messages */
+.alert {
+    margin-top: 20px;
+}
+
+/* Spinner container */
+.mat-spinner {
+    margin-top: 30px;
+}
+
+/* Course Cards */
+.mat-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.mat-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card title */
+.mat-card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Card content */
+.mat-card-content {
+    font-size: 14px;
+    color: #666;
+}
+
+.mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Button styles */
+button {
+    font-size: 14px;
+}
+
+button.mat-raised-button {
+    margin: 5px;
+}
+
+/* Responsive Design - Media queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .mat-card {
+        margin-bottom: 15px;
+    }
+
+    .mat-card-actions {
+        flex-direction: column;
+    }
+
+    /* Adjust button size on smaller screens */
+    button.mat-raised-button {
+        width: 100%;
+    }
+}
+
+/* Styling for the applications list */
+.application-info h4 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.application-info p {
+    margin: 5px 0;
+}
+
+/* Application actions section */
+/* .application-actions {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+} */
+
+.application-actions button {
+    margin: 5px 0;
+}
+
+/* Centering the "No applications" or "No courses" messages */
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+}
+
+/* Styling for the page header */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.75rem;
+    margin-top: 30px;
+}
+
+/* Overall container padding */
+.container {
+    padding: 30px;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}

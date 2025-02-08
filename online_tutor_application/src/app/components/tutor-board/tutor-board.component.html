@@ -1,0 +1,98 @@
+<div class="student-board">
+    <!-- Navbar with Logout Button on the right -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand">Tutor Dashboard</span>
+        <div class="ml-auto">
+            <!-- Logout Button -->
+            <button mat-button color="warn" (click)="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="content">
+        <!-- Tutor Dashboard Content -->
+        <h1>Welcome to the Tutor Dashboard!</h1>
+        <p>Here you can manage your courses and applications.</p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <!-- Error message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h2 class="text-primary">My Courses</h2>
+            </div>
+        </div>
+
+        <!-- Loader while tutor courses are being fetched -->
+        <div class="row" *ngIf="loadingCourses">
+            <div class="col-12 text-center">
+                <mat-spinner></mat-spinner>
+            </div>
+        </div>
+
+        <!-- Display tutor's courses -->
+        <div class="row" *ngIf="!loadingCourses && tutorCourses.length > 0">
+            <div *ngFor="let course of tutorCourses" class="col-md-4 mb-4">
+                <mat-card>
+                    <mat-card-title>{{ course.courseName }}</mat-card-title>
+                    <mat-card-content>
+                        <p>
+                            <strong>Duration:</strong>
+                            {{ course.courseDuration }}
+                        </p>
+                        <p>
+                            <strong>Fees:</strong> {{ course.fees | currency }}
+                        </p>
+                        <p>{{ course.description }}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button (click)="viewApplications(course)">
+                            View Applications
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+
+        <!-- Message if no courses available -->
+        <div *ngIf="!loadingCourses && tutorCourses.length === 0" class="text-center">
+            <p>No courses available for this tutor.</p>
+        </div>
+
+        <!-- Display applications for selected course -->
+        <div *ngIf="filteredApplications.length > 0" class="row mt-4">
+            <div class="col-12">
+                <h3 class="text-primary">
+                    Applications for {{ selectedCourse?.courseName }}
+                </h3>
+                <mat-list>
+                    <mat-list-item *ngFor="let application of filteredApplications">
+                        <div class="application-info">
+                            <h4>{{ application.studentEmail }}</h4> <!-- Display student email -->
+                            <p><strong>Course ID:</strong> {{ application.courseId }}</p>
+                        </div>
+                        <div class="application-actions">
+                            <button mat-raised-button color="primary" (click)="acceptApplication(application.id)">
+                                Accept
+                            </button>
+                            <button mat-raised-button color="warn" (click)="rejectApplication(application.id)">
+                                Reject
+                            </button>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+
+
+        <!-- If no applications available for the selected course -->
+        <div *ngIf="filteredApplications.length === 0 && selectedCourse" class="text-center">
+            <p>No applications for this course yet.</p>
+        </div>
+    </div>
+</div>

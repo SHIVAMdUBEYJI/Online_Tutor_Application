@@ -1,0 +1,60 @@
+<mat-sidenav-container class="sidenav-container">
+    <!-- Sidenav -->
+    <mat-sidenav
+        #drawer="matSidenav"
+        class="sidenav"
+        fixedInViewport
+        role="navigation"
+        mode="side"
+        [opened]="false"
+        *ngIf="!isStudentOrTutorBoard"
+    >
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <!-- Links for Not Logged In -->
+            <ng-container *ngIf="!isLoggedIn">
+                <a
+                    routerLink="/register"
+                    mat-list-item
+                    (click)="drawer.toggle()"
+                    >Register</a
+                >
+                <a routerLink="/login" mat-list-item (click)="drawer.toggle()"
+                    >Login</a
+                >
+            </ng-container>
+
+            <!-- Links for Logged In -->
+            <ng-container *ngIf="isLoggedIn">
+                <a
+                    routerLink="/student-board"
+                    mat-list-item
+                    (click)="drawer.toggle()"
+                    >Student Dashboard</a
+                >
+                <a
+                    routerLink="/tutor-board"
+                    mat-list-item
+                    (click)="drawer.toggle()"
+                    >Tutor Dashboard</a
+                >
+                <a mat-list-item (click)="logout()">Logout</a>
+            </ng-container>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- Main Content -->
+    <mat-sidenav-content>
+        <mat-toolbar color="bg-dark" class="toolbar">
+            <button
+                mat-icon-button
+                (click)="drawer.toggle()"
+                *ngIf="!isStudentOrTutorBoard"
+            >
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="toolbar-title">Online Tutor Application</span>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

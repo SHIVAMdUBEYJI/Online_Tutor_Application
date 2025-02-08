@@ -1,0 +1,32 @@
+<form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="apply-form">
+  <h2 mat-dialog-title class="form-title">Apply for Course</h2>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="col-12">
+      <mat-label>Your Name</mat-label>
+      <input matInput formControlName="studentName" placeholder="Enter your full name" required aria-label="Your Name">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="col-12">
+      <mat-label>Your studentEmail</mat-label>
+      <input matInput formControlName="studentEmail" placeholder="Enter the Student Email" required aria-label="Your Email">
+      <mat-icon matSuffix>studentEmail</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group">
+    <mat-form-field appearance="fill" class="col-12">
+      <mat-label>Message to Tutor</mat-label>
+      <textarea matInput formControlName="message" rows="4" placeholder="Write a message to the tutor" aria-label="Message to Tutor"></textarea>
+      <mat-icon matSuffix>message</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="form-group text-center">
+    <button mat-raised-button color="primary" type="submit" [disabled]="applicationForm.invalid" class="submit-button">
+      <mat-icon matSuffix>send</mat-icon> Submit   </button>
+  </div>
+</form>
