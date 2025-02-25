@@ -21,10 +21,10 @@ export class AuthGuardService implements CanActivate {
     }
 
 
-    const currentUserRole = this.authService.getUserRole(); 
+    const currentUserRole = this.authService.getUserRole();
 
     if (expectedRole && currentUserRole !== expectedRole) {
-
+      
       this.router.navigate(['/login']);
       return false;
     }

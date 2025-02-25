@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
+    production: true,
 	tutorAppUrl: 'http://localhost:9000'
 };
